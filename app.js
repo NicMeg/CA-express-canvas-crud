@@ -10,11 +10,13 @@ app.set("view engine", "handlebars");
 const authRoutes = require('./routes/auth_routes')
 
 
-
+// form parser
 app.use(express.urlencoded({ extended: false }));
 
+// application level routes
 app.get('/', (req, res) => res.render('home'))
+app.use('/user', authRoutes)
 
-app.use('/register', authRoutes )
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
