@@ -1,28 +1,35 @@
 {
-  "name": "ca-express-canvas-crud",
+  "name": "Express-Drawing-App",
   "version": "1.0.0",
-  "description": "",
+  "description": "CRUD drawing app built with express and fabric.js",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NicMeg/CA-express-canvas-crud.git"
+    "url": "git+https://github.com/NicMeg/Express-Drawing-App.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/NicMeg/CA-express-canvas-crud/issues"
+    "url": "https://github.com/NicMeg/Express-Drawing-App/issues"
   },
-  "homepage": "https://github.com/NicMeg/CA-express-canvas-crud#readme",
+  "homepage": "https://github.com/NicMeg/Express-Drawing-App#readme",
   "dependencies": {
+    "canvas": "^2.6.1",
+    "dompurify": "^2.1.1",
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
-    "express-handlebars": "^5.1.0",
-    "express-session": "^1.17.1",
-    "mongoose": "^5.10.9"
+    "fabric": "^4.2.0",
+    "jsdom": "^16.4.0",
+    "marked": "^1.2.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.10.7",
+    "slugify": "^1.4.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.5"
+    "nodemon": "^2.0.4"
   }
 }
