@@ -27,9 +27,11 @@
           <%= drawing.createdAt.toLocaleDateString('en-GB') %> 
           <div class="card-text mb-2"> <%= drawing.description %> </div>
           <a href="/drawings/<%= drawing.slug %>" class="btn btn-primary">Read more</a>
-          <a href="/drawings/edit/<%= drawing.id %>" class="btn btn-info">Edit</a>
-          <form action="/drawings/<%= drawing.id %>?_method=DELETE" method="POST" class="d-inline">
+          <% if (drawing.user_id == current_user) { %>
+            <a href="/drawings/edit/<%= drawing.id %>" class="btn btn-info">Edit</a>
+            <form action="/drawings/<%= drawing.id %>?_method=DELETE" method="POST" class="d-inline">
             <button type="submit" class="btn btn-danger">Delete</button>
+          <% } %>
           </form>
         </div>
       </div>
@@ -37,10 +39,6 @@
     <% }) %>
   </div>
 
-  <!-- <canvas width="300" height="300" id="c"> 
-    An alternative text describing what your canvas displays. 
-  </canvas>
-  <script src="canvas.js"></script> -->
 </body>
 
 </html>
