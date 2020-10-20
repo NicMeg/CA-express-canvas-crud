@@ -10,6 +10,11 @@
 </head>
 
 <body>
+  <!-- Nav-bar -->
+  <div>
+    <%- include('_nav_bar'), { loggedIn: loggedIn }  %>
+  </div>
+  
   <div class="container">
     <h1 class="mb-4">Edit Drawing</h1>
     <form action="/drawings/<%= drawing.id %>?_method=PUT" method="POST">

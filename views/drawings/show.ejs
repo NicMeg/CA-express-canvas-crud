@@ -10,6 +10,11 @@
 </head>
 
 <body>
+  <!-- Nav-bar -->
+  <div>
+    <%- include('_nav_bar'), { loggedIn: loggedIn }  %>
+  </div>
+  
   <div class="container">
     <h1 class="mb-4"><%= drawing.title %> </h1>
     <div class="text-muted mb-2">

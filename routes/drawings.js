@@ -3,18 +3,18 @@ const Drawing = require('./../models/drawing')
 const router = express.Router()
 
 router.get('/new', (req, res) => {
-  res.render('drawings/new', { drawing: new Drawing() })
+  res.render('drawings/new', { drawing: new Drawing(), loggedIn: req.user })
 })
 
 router.get('/edit/:id', async (req, res) => {
   const drawing = await Drawing.findById(req.params.id)
-  res.render('drawings/edit', { drawing: drawing })
+  res.render('drawings/edit', { drawing: drawing, loggedIn: req.user })
 })
 
 router.get('/:slug', async (req, res) => {
   const drawing = await Drawing.findOne( {slug: req.params.slug})
   if (drawing == null ) res.redirect('/')
-  res.render('drawings/show', { drawing: drawing })
+  res.render('drawings/show', { drawing: drawing, loggedIn: req.user })
 })
 
 router.post('/', async (req, res, next) => {
@@ -42,7 +42,7 @@ function saveDrawingAndRedirect(path){
       drawing = await drawing.save()
       res.redirect(`/drawings/${drawing.slug}`)
     } catch (error) {
-      res.render(`drawings/${path}`, { drawing: drawing })
+      res.render(`drawings/${path}`, { drawing: drawing, loggedIn: req.user })
     }
   }
 }
