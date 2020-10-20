@@ -2,7 +2,7 @@ var fs = require('fs'),
     fabric = require('fabric').fabric,
     out = fs.createWriteStream(__dirname + '/helloworld.png');
 
-var canvas = new fabric.StaticCanvas(null, { width: 200, height: 200 });
+var canvas = new fabric.StaticCanvas(null, { width: 700, height: 700 });
 var text = new fabric.Text('Hello world', {
   left: 1,
   top: 1,

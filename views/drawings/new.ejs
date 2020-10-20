@@ -7,6 +7,8 @@
   <title>Blog</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+
 </head>
 
 <body>
@@ -14,12 +16,22 @@
   <div>
     <%- include('_nav_bar'), { loggedIn: loggedIn }  %>
   </div>
-  
+
   <div class="container">
     <h1 class="mb-4">New Drawing</h1>
     <form action="/drawings" method="POST">
-      <%- include('_form_fields')  %> 
+      <%- include('_form_fields')  %>
     </form>
+  </div>
+
+  <h1>Canvas Testing</h1>
+  <canvas id="canvas"></canvas>
+  <button onclick="toggleMode(modes.pan)">Toggle Pan Mode</button>
+    <button onclick="toggleMode(modes.drawing)">Toggle Drawing Mode</button>
+    <button onclick="saveCanvas(canvas)">Save</button>
+  <script src="fabric.min.js"></script>
+  <script src="drawme.js"></script>
+
 </body>
 
 </html>

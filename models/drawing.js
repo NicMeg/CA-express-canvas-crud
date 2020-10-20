@@ -31,6 +31,12 @@ const drawingSchema = new mongoose.Schema({
     type: String,
     required: true
   }
+  // ,  
+  // canvas: {
+  //   type: Object,
+  //   required: false
+  // }
+
 })
 
 drawingSchema.pre('validate', function (next){

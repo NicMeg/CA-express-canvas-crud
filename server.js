@@ -1,7 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const Drawing = require('./models/drawing')
-const drawingRouter = require('./routes/drawings')
 const methodOverride = require('method-override')
 const expressSession = require('express-session')
 const MongoStore = require('connect-mongo')(expressSession);
@@ -9,8 +8,13 @@ const passport = require('passport');
 
 // imported routes
 const authRouter = require('./routes/auth_routes');
+const drawingRouter = require('./routes/drawings')
 
 const app = express()
+
+// app.use('/public', express.static(__dirname + '/public'));
+app.use(express.static('public'))
+app.use('/public', express.static(__dirname));
 
 // express session
 app.use(expressSession({
@@ -29,6 +33,7 @@ const dbConn = 'mongodb://localhost/canvas_app'
 mongoose.connect(dbConn, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
+        useCreateIndex: true,
         useFindAndModify: false
     },
     (err) => {
