@@ -30,6 +30,10 @@ const drawingSchema = new mongoose.Schema({
   sanitizedHtml: {
     type: String,
     required: true
+  },
+  user_id: {
+    type: String,
+    required: true
   }
 })
 

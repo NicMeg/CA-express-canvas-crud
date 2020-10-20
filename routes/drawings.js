@@ -38,11 +38,12 @@ function saveDrawingAndRedirect(path){
     drawing.title =  req.body.title,
     drawing.description =  req.body.description,
     drawing.markdown = req.body.markdown
+    drawing.user_id = req.session.passport.user
     try {
       drawing = await drawing.save()
       res.redirect(`/drawings/${drawing.slug}`)
     } catch (error) {
-      res.render(`drawings/${path}`, { drawing: drawing, loggedIn: req.user })
+      res.render(`drawings/${path}`, { drawing: drawing })
     }
   }
 }

@@ -49,9 +49,11 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
 
+app.use(express.static('public'))
+
 app.get('/', async (req, res) => {
   const drawings = await Drawing.find().sort({ createdAt: 'desc'})
-  res.render('drawings/index', { drawings: drawings, loggedIn: req.user })
+  res.render('drawings/index', { drawings: drawings, loggedIn: req.user, current_user: req.session.passport.user })
 })
 
 app.use('/drawings', drawingRouter)
