@@ -1,8 +1,9 @@
 const express = require('express')
-const Drawing = require('./../models/drawing')
+const Drawing = require('../models/drawing')
 const router = express.Router()
 
 router.get('/new', (req, res) => {
+  console.log(req.user)
   res.render('drawings/new', { drawing: new Drawing(), loggedIn: req.user })
 })
 
